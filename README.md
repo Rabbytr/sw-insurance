@@ -1,4 +1,8 @@
 # insurance-sw
+## Insurance Investment System
+
+![MainUI](./img/mainUI.png)
+See more at [Release](https://github.com/Rabbytr/sw-insurance/releases)
 
 ## Project setup
 
@@ -7,6 +11,7 @@ yarn install
 ```
 
 ### Compiles and hot-reloads for development
+
 ```
 yarn serve
 ```
@@ -17,7 +22,4 @@ yarn serve
 yarn build
 ```
 
-## Realese
-
-![MainUI](./img/mainUI.png)
 
