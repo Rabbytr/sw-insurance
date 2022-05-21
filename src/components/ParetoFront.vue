@@ -8,7 +8,7 @@
       v-model="dialogShow"
       @hide="onDialogHide"
   >
-    <q-card style="width: 100vw">
+    <q-card style="width: 100vw;background: #100c2a">
       <q-card-section>
         <q-carousel
             v-model="planSlide"
@@ -20,6 +20,7 @@
             swipeable
             keep-alive
             height="65vh"
+            class="bg-transparent"
         >
           <q-carousel-slide
               v-for="(plan,index) in props.data.multi_plans[currentFront]"
@@ -66,7 +67,7 @@ export default {
     PersonalPlan,
   },
   provide: {
-    [THEME_KEY]: "light"
+    [THEME_KEY]: "dark"
   },
   setup(props){
     const onDialogHide = () => {

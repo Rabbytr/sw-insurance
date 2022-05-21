@@ -1,7 +1,26 @@
 <template style="background-color: #f6f6fc">
+  <teleport to="body">
+    <transition name="fade">
+      <div id="enter" v-show="enterUIshow" transitionn="fade">
+        <div id="enter-box">
+          <input value="保险投资组合系统" class="enter-btn" @click="enterSystem(1)"/>
+          <input value="保险风险管理系统" class="enter-btn" style="top: 380px"  @click="enterSystem(2)" />
+        </div>
+      </div>
+    </transition>
+  </teleport>
   <div class="q-ma-md">
 <!--    <q-btn color="white" text-color="black" label="启动" @click="submit" />-->
-    <q-btn outline  style="color: #FF0080" label="Let's Go" @click="submit"/>
+    <div class="row">
+      <q-btn outline  style="color: #FF0080" label="Let's Go" class="col"
+             @click="submit" />
+      <div class="col"></div>
+      <div class="col"></div>
+      <div class="col"></div>
+      <div class="col"></div>
+      <q-btn outline  style="color: #00eaff" label="C System" class="col"
+             @click="enterUIshow=true"/>
+    </div>
   </div>
   <div class="row" >
     <div class="col-3 q-pa-md">
@@ -21,6 +40,7 @@
       <q-tab-panels
           v-model="systemTab"
           animated
+          class="bg-transparent"
           transition-prev="scale"
           transition-next="scale"
       >
@@ -319,12 +339,92 @@ export default defineComponent({
       }
     }
 
-    return {singlePlanData,pfData,personList,submit,refLoading,systemTab};
+    const enterUIshow = ref(true)
+    const enterSystem = (which) => {
+      if(which==1){
+        systemTab.value = 'one'
+      }else{
+        systemTab.value = 'multi'
+      }
+      enterUIshow.value = false
+    }
+
+    return {singlePlanData,pfData,personList,submit,refLoading,systemTab,enterUIshow,enterSystem};
   }
 });
 
 </script>
 
 <style scoped>
+#enter {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  background: linear-gradient(to top right, #01424d, #010810);
+}
 
+#enter-box{
+  background: red;
+  height: 637px;
+  width: 618px;
+  margin: auto;
+  right: 0;
+  left: 0;
+  margin-top: 30px;
+  background: url('../assets/scut.png');
+  position: relative;
+}
+
+.enter-btn:hover{
+  padding: 0 16px;
+  line-height: 50px;
+  font-size: 24px;
+  background-color: #00eaff;
+  color: #fff;
+  border-radius: 8px;
+  transition: background 0.6s linear;
+}
+
+.enter-btn{
+  width: 70%;
+  display: inline-block;
+  padding: 0 16px;
+  font-size: 22px;
+  line-height: 48px;
+  color: #00eaff;
+  text-align: center;
+  cursor: pointer;
+  background: none;
+  border: 1px solid;
+  border-radius: 6px;
+  outline:none;
+  position: absolute;
+  top: 250px;
+  margin: auto;
+  left: 0;
+  right: 0;
+}
+
+#fuck {
+  width: 300px;
+  border: 0;
+  box-sizing: border-box;
+  height: 30px;
+
+  background: none!important;
+  color: #00eaff;
+  padding-left: 0.15rem;
+  outline: 0;
+  -webkit-tap-highlight-color: rgba(255,0,0,0);
+  position: inherit;
+}
+
+.fade-leave-active {
+  transition: opacity 1s
+}
+.fade-leave-active {
+  opacity: 0
+}
 </style>

@@ -14,17 +14,19 @@
             {{ person.name[0] }}</q-avatar>
       </q-item-section>
       <q-item-section>
-        <q-item-label>{{ person.name }}</q-item-label>
-        <q-item-label caption>{{ person.age }}</q-item-label>
+        <q-item-label style="color: #f6f6fc">{{ person.name }}</q-item-label>
+        <q-item-label caption style="color: #f6f6fc">{{ person.age }}</q-item-label>
       </q-item-section>
 
       <q-item-section side bottom>
         <q-badge color="pink-3" :label="moneyTrans(person.money)" />
       </q-item-section>
+
     </q-item>
     <q-page-sticky position="bottom-left" :offset="[18, 18]">
       <q-btn fab icon="add" style="background: #fcb2d5;color: #f6f6fc" @click="addPerson" />
     </q-page-sticky>
+
   </q-list>
   </q-scroll-area>
 

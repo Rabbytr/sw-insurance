@@ -77,7 +77,7 @@
 
     <q-page-container >
       <div class="my-center">
-        <q-card>
+        <q-card style="background: #100c2a">
           <q-card-section>
             <HelloWorld />
           </q-card-section>

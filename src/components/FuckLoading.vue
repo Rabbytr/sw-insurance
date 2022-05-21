@@ -22,7 +22,7 @@
 
       <q-inner-loading
           :showing="true"
-          label="正在初始化种群..."
+          label="正在计算最优投资组合方案..."
           label-class="text-teal"
           label-style="font-size: 1.1em"
       />

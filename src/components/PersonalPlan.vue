@@ -46,6 +46,7 @@
           infinite
           animated
           keep-alive
+          class="bg-transparent"
       >
         <q-tab-panel name="plan">
           <div class="charts-wapper" >
@@ -96,7 +97,7 @@ export default {
     VChart
   },
   provide: {
-    [THEME_KEY]: "light"
+    [THEME_KEY]: "dark"
   },
   setup(props){
     const chartsTab = ref('plan')
