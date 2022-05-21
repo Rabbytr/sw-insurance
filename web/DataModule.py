@@ -1,7 +1,7 @@
 from ctypes import *
 import math
 import sys
-sys.path.append('../../BXData')
+# sys.path.append('../../BXData')
 
 plan_labels = ["充裕未来", "裕满人生", "智昇保险", "爱无忧", "简爱延续"]
 # 充裕未来计划 裕满人生保障计划 智昇保险计划 爱无忧长享计划 简爱延续保障计划
@@ -42,7 +42,10 @@ class MultiRes(Structure):
 
 class OneData:  # 将现有财富和年龄参数传入run，返回json字符串
     def __init__(self):
-        self.dll = cdll.LoadLibrary("./One.dll")
+        try:
+            self.dll = cdll.LoadLibrary("One.dll")
+        except FileNotFoundError:
+            self.dll = cdll.LoadLibrary("./One.dll")
         self.dll.run_data.restype = POINTER(OneRes)
 
     def run(self, money, age, username):
@@ -126,7 +129,10 @@ def deal_one_plan(people_num, year, plan, age_list, name_list):
 
 class MultiData:
     def __init__(self):
-        self.dll = cdll.LoadLibrary("./Multi.dll")
+        try:
+            self.dll = cdll.LoadLibrary("Multi.dll")
+        except FileNotFoundError:
+            self.dll = cdll.LoadLibrary("./Multi.dll")
         self.dll.run_data.restype = POINTER(MultiRes)
 
     def run_data(self, money, people_num, age_list, year, name_list):

@@ -1,2 +1,2 @@
-rem pyinstaller  --add-binary Project3.dll;. --add-data ./html;./html --add-data ./data;./data main.py 
-pyinstaller -F main.py
+pyinstaller --add-binary ./One.dll;. --add-binary ./Multi.dll;. --add-data ../dist;./html --add-data ./data;./data -F main.py
+rem pyinstaller -F main.spec

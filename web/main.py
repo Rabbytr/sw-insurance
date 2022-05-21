@@ -18,6 +18,7 @@ multiLib = MultiData()
 app = FastAPI()
 app.mount("/css", StaticFiles(directory=f"{htmlpath}/css"), name="css")
 app.mount("/js", StaticFiles(directory=f"{htmlpath}/js"), name="js")
+app.mount("/img", StaticFiles(directory=f"{htmlpath}/img"), name="img")
 app.mount("/fonts", StaticFiles(directory=f"{htmlpath}/fonts"), name="fonts")
 
 
